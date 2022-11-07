@@ -1,0 +1,19 @@
+.removeFooter .jodit-workplace+.jodit-status-bar:not(:empty) {
+    display: none;
+}
+
+.removeFooter .jodit-container:not(.jodit_inline) {
+    border: 1px solid #dadada;
+    border-radius: 0px;
+}
+
+.removeborder .jodit-container:not(.jodit_inline) {
+    border: 0px solid #dadada !important;
+}
+
+.removeFooter .jodit-toolbar__box:not(:empty) {
+    background-color: #f9f9f9;
+    border-bottom: 0px solid #dadada;
+    border-radius: 3px 3px 0 0;
+    overflow: hidden;
+}

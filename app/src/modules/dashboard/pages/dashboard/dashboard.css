@@ -1,0 +1,7 @@
+#dashboard {
+    height: calc(100vh - 100px)
+}
+
+#dashboard .ant-table-container table > thead > tr th {
+    background: white;
+}

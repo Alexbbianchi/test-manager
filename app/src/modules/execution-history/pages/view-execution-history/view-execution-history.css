@@ -1,0 +1,11 @@
+.view-execution-history-layout {
+    height: calc(100vh - 100px);
+}
+
+.description-collapse .ant-collapse-content > .ant-collapse-content-box {
+  padding: 0px;
+}
+
+.description-collapse .ant-form-item {
+  margin-bottom: 0px;
+}
