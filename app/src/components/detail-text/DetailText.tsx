@@ -6,29 +6,25 @@ import { DetailTextProps } from './DetailText.types';
 
 const DetailText: React.FC<DetailTextProps> = ({ name, label, date, datetime }) => {
 
-    // variavel que irá renderizar o resultado
-    // irá pegar o valor dentro do form e exibir conforme seu tipo (string, date ou datetime)
     const resultValue = (value: any) => {
-        if (!value) // se não tiver nada
+        if (!value)
             return "--"
-        if (date) // se for uma date
+        if (date)
             return FormatDateServices.formatDateTime(value);
-        if (datetime) // se for um datetime
+        if (datetime)
             return FormatDateServices.formatDate(value);
-        return value; // por default retorna o valor
+        return value;
     }
 
     return (
         <>
-            {/* Cria um controlador do react-hook-form */}
             <Controller style={{marginBottom: '-10px'}}
-                name={name} // parametro passado nome
-                key={name} // cria uma chave pelo nome passado
-                render={({ value }) => // o render é para renderizar o valor conforme desejar
+                name={name}
+                key={name}
+                render={({ value }) =>
                     <>  
-                        {/* Typography. text vem do Ant design */}
-                        <Typography.Text style={{marginRight: '10px'}} strong /* strong é negrito */>{label}</Typography.Text> 
-                        {resultValue(value)} {/*resultValue*/}
+                        <Typography.Text style={{marginRight: '10px'}} strong>{label}</Typography.Text> 
+                        {resultValue(value)}
                         <br />
                     </>
                 }

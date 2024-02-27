@@ -1,7 +1,7 @@
 import { UseFormMethods } from "react-hook-form";
 
 export interface FormProps<TModel> {
-    provider: UseFormMethods<TModel>; // segue a documanteção
+    provider: UseFormMethods<TModel>;
     loading: boolean;
-    handleSubmit?: (value: any) => Promise<void>; // Tipagem de função
+    handleSubmit?: (value: any) => Promise<void>;
 }

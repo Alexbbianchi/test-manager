@@ -1,19 +1,19 @@
 import { UserPermission } from "../../modules/user/models/User";
 
 export interface IUser {
-    id?: string; // valores vindos no token
-    name?: string; // valores vindos no token
-    email?: string; // valores vindos no token
-    username?: string; // valores vindos no token
-    permission?: UserPermission; // valores vindos no token
-    dataToken?: Date; // valores vindos no token
+    id?: string;
+    name?: string;
+    email?: string;
+    username?: string;
+    permission?: UserPermission;
+    dataToken?: Date;
 }
 
-export interface IContext extends IUser { // herança em typescript
-    login: (token: string) => Promise<void>;  // tipagem dos métodos passador pelo contexto
-    logout: () => void;                       // tipagem dos métodos passador pelo contexto
+export interface IContext extends IUser {
+    login: (token: string) => Promise<void>; 
+    logout: () => void;                      
 }
 
 export interface IAuthProvider {
-    children: JSX.Element; // padrão de tipagem de um elemento JSX
+    children: JSX.Element;
 }

@@ -4,5 +4,3 @@ export interface DetailTextProps {
     date?: boolean;
     datetime?: boolean;
 }
-
-// parqametros usados para o component

@@ -12,7 +12,7 @@ const RadioGroup: React.FC<RadioGroupProps> = (props) => {
 
     return (
         <>
-           <Controller // como não é possivel controlar os redio-group pelo FormFields, foi criado um componente para controlar esse tipo de campo
+           <Controller
                 name={props.name}
                 key={props.name}
                 render={({ onChange, value }) =>
@@ -21,7 +21,7 @@ const RadioGroup: React.FC<RadioGroupProps> = (props) => {
                             <Radio.Group buttonStyle="solid" disabled={props.disabled}
                                 {...props}
                                 style={props.style ? props.style : { width: "100%" }}
-                                onChange={(e) => onChange(e.target.value)} // maneira conforme documentação
+                                onChange={(e) => onChange(e.target.value)}
                                 value={value}
                             />
                             

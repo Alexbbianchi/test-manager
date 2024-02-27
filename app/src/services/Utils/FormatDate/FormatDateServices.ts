@@ -1,7 +1,5 @@
 import moment from "moment";
 
-// formatadores de datas recebe string ou date e retorna conforme as formatações
-
 class FormatDateServices {
 
     

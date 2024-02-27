@@ -9,31 +9,26 @@ import { Switch as SwitchAntd } from 'antd';
 export const FormFields = <P extends object>(Field: React.ComponentType<P>, propsConf?: any): React.FC<P & FormFieldsProps> => (props: any) => {
 
     return (
-        <Controller // controlador do react-hook-form => seguir documentação
+        <Controller
             name={props.name}
             defaultValue={props.value ?? null}
             key={props.name}
-            render={({ onChange, onBlur, value }) => // o contrador tem encapsulado métodos de onChange e onBlur, dentre outros, basta passar no método do controlado
+            render={({ onChange, onBlur, value }) =>
                 <>
-                    {props.hidden !== true && // se não for para esconder, exiba
-                        // FormItem é a formatação dos textos e renderização (padding, etc)
+                    {props.hidden !== true &&
+                    
                         <FormItem label={props.label || ""} required={props.required}> 
                             
-                            {/* 
-                                Field é o tipo do campo
-                                Pode ser Input, TextArea, InputNumber, Select, etc.
-                                Se não exirtir mesma cofigurações, deve-se criar um controler próprio.
-                            */}
                             <Field autoComplete="off"
-                                {...propsConf} // passa configurações do react component
-                                {...props} // passa configurações especificas do campo
+                                {...propsConf}
+                                {...props}
                                 required={false}
                                 style={props.style ? props.style : { width: "100%" }}
                                 onChange={onChange}
                                 onBlur={onBlur}
                                 value={props.render ? props.render(value) : value} />
 
-                            <ErrorMessage // mensagem de erro, confiração é feita no schema do Yup
+                            <ErrorMessage
                                 name={props.name} 
                                 render={
                                     ({ message }) => <p style={{ color: "red" }}> {message} </p> } 
@@ -47,17 +42,12 @@ export const FormFields = <P extends object>(Field: React.ComponentType<P>, prop
     );
 }
 
-// Component para tratar o campo de Switch
 const FormSwitch: React.FC<any> = (props) => {
     return (
         <SwitchAntd {...props} checked={props.value}/>
     )
 }
 
-/**
- * Chama o método FormFiends, passando quem é o component a ser controlado e alguma configuração especifica
- * E exporta o component conforme suas especificações
- */
 export const Input = FormFields(Antd.Input, {});
 export const Select = FormFields(Antd.Select, {})
 export const TextArea = FormFields(Antd.Input.TextArea, {});

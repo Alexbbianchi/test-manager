@@ -10,12 +10,9 @@ import { useAuth } from '../context/AuthProvider/useAuth';
 import { Button, Result } from 'antd';
 
 const RoutesConfig: React.FC = () => {
-    // instancio o usuário altenticado
     const auth = useAuth();
 
-    // método que valida se o usário possui permissão para acessar os componentes privados ou não
     const ValidatePermission = () => {
-        // se tiver nome no auth exibe telas do sistema
         if (!!auth.username) {
             return (
                 <PrivateLayout>
@@ -23,7 +20,6 @@ const RoutesConfig: React.FC = () => {
                 </PrivateLayout>
             );
         }
-        // se não retorna tela de acesso invalido
         return (
             <></>
             // <Result
@@ -41,12 +37,12 @@ const RoutesConfig: React.FC = () => {
 
     return (
         <>
-            <BrowserRouter /* próprio do react-router-dom */>
+            <BrowserRouter>
                 <Switch>
-                    <Router history={BrowserHistory} /* é passado o BroserHistory como history, assim podemos usar as rotas em qualquer lugar do sistema */>
-                        <LocaleProvider locale={ptBR} /* irá traduzir os campos do antd desingn com a lingua portuguesa */> 
+                    <Router history={BrowserHistory}>
+                        <LocaleProvider locale={ptBR}> 
                             <Route path="/login" component={Login} />
-                            <ValidatePermission /* Chama método que valida as permissões de acesso */ />
+                            <ValidatePermission />
                         </LocaleProvider> 
                     </Router>
                 </Switch>

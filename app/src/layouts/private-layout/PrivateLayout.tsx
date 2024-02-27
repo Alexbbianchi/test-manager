@@ -17,22 +17,20 @@ import "./private-layout.css"
 import { UserPermission } from '../../modules/user/models/User';
 import PrivateHeader from '../private-header/PrivateHeader';
 
-// desestruturação
 const { Header, Sider, Content } = Layout;
 
 const PrivateLayout: React.FC = (props) => {
 
-    // crio um controlador de estado para a variavel collapsed
     const [collapsed, setCollapsed] = useState(false);
-    // instancio o contexto
+
     const auth = useAuth();
-    // método passado por propriedade, método é criado aqui, mas é dispadado na tela do header
+
     const toggle = () => {
-        setCollapsed(old => !old); // nega o valor antigo
+        setCollapsed(old => !old);
     };
 
     return (
-        
+
         <Layout>
             <Header className="private-background-header">
                 <PrivateHeader collapsed={collapsed} toggle={toggle} />
@@ -44,9 +42,9 @@ const PrivateLayout: React.FC = (props) => {
                     trigger={null}
                     collapsed={collapsed}
                 >
-                    <Menu className="private-background-menu" 
-                        // esta linha faz com que sempre que seja atualizado a tela, venha marcado como selecionado no menu lateral, conforme a rota atual
-                        defaultSelectedKeys={[window.location.href.replace('http://','').split('/')[1]]} mode="inline" >
+                    <Menu className="private-background-menu"
+
+                        defaultSelectedKeys={[window.location.href.replace('http://', '').split('/')[1]]} mode="inline" >
                         <Menu.Item key="" icon={<ProjectOutlined />} >
                             <Link to="/">
                                 Dashboard
@@ -90,7 +88,6 @@ const PrivateLayout: React.FC = (props) => {
                     </Menu>
                 </Sider>
 
-                {/* Onde é renderizado todo o conteudo das paginas, sejá listagem ou crud */}
                 <Content className="container" >
                     <div className="private-background-body" >
                         {props.children}

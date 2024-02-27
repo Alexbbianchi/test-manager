@@ -18,8 +18,7 @@ const SideTransfer: React.FC<SideTransferProps> = (props) => {
                 render={({ onChange, value }) =>
                     <>
                         <FormItem label={props.label || ""} required={props.required} >
-                            <Transfer // configurações especificas para um sidetransfer do antd design
-                                // seguir conforme documentação
+                            <Transfer
                                 rowKey={props.rowKey}
                                 disabled={props.disabled}
                                 titles={['Lista de itens', 'Itens selecionados']}
