@@ -5,7 +5,6 @@ import { StatusType } from '../../modules/test-case/models/TestCase';
 
 const StatusTestCase: React.FC<StatusTestCaseProps> = ({ status, style }) => {
 
-    // componente que retorna um icone para o status conforme o tipo
     switch (status) {
         case StatusType.CONFIRMED: 
             return (<Badge style={style} status="success" text="Confirmado" />)

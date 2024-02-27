@@ -17,9 +17,6 @@ const RoutesModules: React.FC = () => {
 
     return (
         <>
-            {/* rotas
-                se o usuário for do tipo visitante, não terá acesso as rotas que estão dentro das chavers '{}'
-            */}
             <Route path="/" exact component={Dashboard} />
             <Route path="/execution-history" component={ExecutionHistory} />
             

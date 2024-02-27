@@ -11,7 +11,6 @@ const TextEditor: React.FC<TextEditorProps> = ({name, label, required, ref, pers
 
     const [config, setConfig] = useState<any>();
    
-    // Pega campos que serão exibidos no editor conforme tipo
     const buttons = () => {
         if (itensButtons === ItensButtons.COMPLETE) return completeButtons;
         if (itensButtons === ItensButtons.SIMPLE) return simpleButtons;
@@ -21,10 +20,8 @@ const TextEditor: React.FC<TextEditorProps> = ({name, label, required, ref, pers
     
     useEffect(() => {
 
-        // carrega os campos exibidos no editor conforme tipo
         const btnConfig = buttons();
 
-        // configuração default para o editor
         const defaultConfig =  {
             readonly: false,
             language: 'pt_br',
@@ -41,11 +38,9 @@ const TextEditor: React.FC<TextEditorProps> = ({name, label, required, ref, pers
             buttonsXS:  [...btnConfig],
         };
         
-        // atualiza as configurações
         setConfig({ ...defaultConfig, ...personConfig});
     }, []);
     
-    // configura o className usado
     const getClassName = () => {
         let newClassName = "";
 
@@ -65,18 +60,16 @@ const TextEditor: React.FC<TextEditorProps> = ({name, label, required, ref, pers
                 key={name}
                 render={({ onChange, value }) =>
                     <>
-                        {/* Mesmo FormItem usado nos demais controladores */}
                         <FormItem label={label || ""} required={required} >
                             <div className={getClassName()}>
-                                <JoditEditor // component externo para editor de texto
-                                    // trabalha com string, configurações são tags do html
+                                <JoditEditor
                                     ref={ref}
                                     value={value}
                                     config={config}
                                     onBlur={onChange}
                                 />
                             </div>
-                            {/* Trata as mensagens de erro conforme o Yup */}
+                            
                             <ErrorMessage name={name} render={({ message }) => <p style={{ color: "red" }}> {message} </p> } key={name} />
                         </FormItem>
                     </>
